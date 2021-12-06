@@ -5,18 +5,27 @@
  * Advent of Code Day 6: Lanternfish
  *********************************************/
 
-long GetPopulationCount(int days, int populationTimer, int currentDay = 0)
+long[] ProcessPopulation(long[] populationByAge)
 {
-    if (currentDay == days) return 1;
-
-    return populationTimer == 0
-        ? GetPopulationCount(days, 6, currentDay + 1) + GetPopulationCount(days, 8, currentDay + 1)
-        : GetPopulationCount(days, populationTimer - 1, currentDay + 1);
+    return Enumerable.Range(0, 9)
+                     .Select(age => age switch
+                     {
+                        6 => populationByAge[0] + populationByAge[7],
+                        8 => populationByAge[0],
+                        _ => populationByAge[age + 1]
+                     })
+                     .ToArray();
 }
 
 var data = await File.ReadAllTextAsync("Data/Day6.txt");
 var population = data.Split(",").Select(int.Parse);
+var populationByAge = Enumerable.Range(0, 9)
+                                .Select(age => population.LongCount(p => p == age))
+                                .ToArray();
 
-var populationCount = population.Sum(f => GetPopulationCount(256, f));
+for (var i = 0; i < 256; i++)
+{
+    populationByAge = ProcessPopulation(populationByAge);
+}
 
-Console.WriteLine($"Day 6 - Lanternfish: {populationCount}");
+Console.WriteLine($"Day 6 - Lanternfish: {populationByAge.Sum()}");
