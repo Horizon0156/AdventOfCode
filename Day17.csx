@@ -57,5 +57,4 @@ Result ShootProbe(ProbeVelocity velocity, TargetPosition target)
     return new (bestVelocity, bestResult, hittingShots);
 }
 
-System.Console.WriteLine(FindBestShot(new TargetPosition(20, 30, -10, -5)));
-Console.WriteLine($"Day 17 - Trick Shot: {FindBestShot(new TargetPosition(48, 79, -189, -148))}");
+Console.WriteLine($"Day 17 - Trick Shot: {FindBestShot(new TargetPosition(48, 70, -189, -148))}");
