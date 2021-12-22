@@ -1,9 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/************************************************
- * Advent of Code Day 9: Smoke Basin
- ***********************************************/
 record Point(int X, int Y, int Value);
 
 IEnumerable<Point> Get4Neighboorhood(int[][] data, Point p)
@@ -46,4 +43,5 @@ var basins = lowPoints.Select(p => GetBasin(data, p))
                       .OrderByDescending(b => b.Count());
 var basinCount = basins.Take(3).Aggregate(1, (c, b) => c * b.Count());
 
-Console.WriteLine($"Day 9 - Smoke Basin: {riskLevel}, {basinCount}");
+Console.WriteLine("Day 9: Smoke Basin");
+Console.WriteLine($"{riskLevel}, {basinCount}");

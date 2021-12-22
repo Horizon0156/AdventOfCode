@@ -1,9 +1,5 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
-
-/***************************************
- * Advent of Code Day 2: Dive!
- **************************************/
  
 public enum Direction
 {
@@ -62,4 +58,5 @@ var instructions = data.Select(Instruction.Parse);
 var submarine = new Submarine();
 submarine.Move(instructions);
 
-Console.WriteLine($"Day 2 - Dive!: {submarine.Position}");
+Console.WriteLine("Day 2: Dive!");
+Console.WriteLine($"{submarine.Position}");

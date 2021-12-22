@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/*******************************************
- * Advent of Code Day 4: Giant Squid
- ******************************************/
-
 using System.Collections;
 
 public record BingoNumber(int RowIndex, int ColumnIndex, int Number)
@@ -94,4 +90,5 @@ foreach (var number in gameNumbers)
     };
 }
 
-Console.WriteLine($"Day 4 - Giant Squid: {winnerScores.First()}, {winnerScores.Last()}");
+Console.WriteLine("Day 4: Giant Squid");
+Console.WriteLine($"{winnerScores.First()}, {winnerScores.Last()}");

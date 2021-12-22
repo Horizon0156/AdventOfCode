@@ -1,4 +1,5 @@
 #!/usr/bin/env dotnet-script
+#nullable enable
 
 class Player
 {
@@ -88,7 +89,7 @@ readonly Dictionary<int, int> _universesByRoll = FindUniversesByRoll();
     return (winsPlayer1, winsPlayer2);
 }
 
-Console.WriteLine("--- Day 21: Dirac Dice ---");
+Console.WriteLine("Day 21: Dirac Dice");
 
 var player1 = new Player(6);
 var player2 = new Player(2);

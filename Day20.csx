@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/*************************************************
- * Advent of Code Day 20: Trench Map
- ************************************************/
-
 int GetNeighboorhoodPower(bool[,] image, int x, int y, bool infinityValue)
 {
     var height = image.GetLength(0);
@@ -74,4 +70,5 @@ for (var i = 0; i < 50; i++)
 var litPixel = image.Cast<bool>()
                     .Count(p => p == true);
     
-Console.WriteLine($"Day 20 - Trench Map: {litPixel}");
+Console.WriteLine("Day 20: Trench Map");
+Console.WriteLine($"{litPixel}");

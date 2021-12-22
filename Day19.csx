@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/*************************************************
- * Advent of Code Day 19: Beacon Scanner
- ************************************************/
-
 class Scanner
 {
     public Vector? Position { get; set; }
@@ -141,4 +137,5 @@ var beacons = knownBeacons.Count();
 var maxDistance = scanner.SelectMany(s1 => scanner.Select(s2 => s1.ManhattanDistance(s2)))
                          .Max();
     
-Console.WriteLine($"Day 19 - Beacon Scanner: {beacons}, {maxDistance}");
+Console.WriteLine("Day 19: Beacon Scanner");
+Console.WriteLine($"{beacons}, {maxDistance}");

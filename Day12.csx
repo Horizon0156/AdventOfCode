@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/************************************************
- * Advent of Code Day 12: Passage Pathing
- ***********************************************/
-
 record Passage(string A, string B);
 
 record Step(Cave Position, List<Cave> VisitedSmallCaves, bool TimeForASecondVisit);
@@ -97,4 +93,5 @@ var numberOfPaths = CountDistinctPathes(start);
 // Part 2
 var numberOfPaths2 = CountDistinctPathes(start, timeForASecondVisit: true);
 
-Console.WriteLine($"Day 12 - Passage Pathing: {numberOfPaths}, {numberOfPaths2}");
+Console.WriteLine("Day 12: Passage Pathing");
+Console.WriteLine($"{numberOfPaths}, {numberOfPaths2}");

@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/************************************************
- * Advent of Code Day 10: Syntax Scoring
- ***********************************************/
-
 record SyntaxCheckResult(int Score, List<char> PendingChunks)
 {
     public ulong GetIncompletenessScore() 
@@ -77,4 +73,5 @@ var incompletenessScores = data.Select(d => CheckSyntax(d).GetIncompletenessScor
                                .ToArray();
 var incompletenessScore = incompletenessScores[incompletenessScores.Length / 2];
 
-Console.WriteLine($"Day 10 - Syntax Scoring: {errorScore}, {incompletenessScore}");
+Console.WriteLine("Day 10: Syntax Scoring");
+Console.WriteLine($"{errorScore}, {incompletenessScore}");

@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/*******************************************
- * Advent of Code Day 3: Binary Diagnostic
- ******************************************/
-
 private const int DIAGNOSTIC_WORD_LENGTH = 12;
 
 private int CalculatePowerConsumption(string[] data)
@@ -56,4 +52,5 @@ var data = await File.ReadAllLinesAsync("Data/Day3.txt");
 var powerConsumption = CalculatePowerConsumption(data); // Part 1
 var lifeSupportRating = CalculateLifeSupportRating(data); // Part 2
 
-Console.WriteLine($"Day 3 - Binary Diagnostic: {powerConsumption}, {lifeSupportRating}");
+Console.WriteLine("Day 3: Binary Diagnostic");
+Console.WriteLine($"{powerConsumption}, {lifeSupportRating}");

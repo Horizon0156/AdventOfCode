@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/*************************************************
- * Advent of Code Day 18: Snailfish
- ************************************************/
-
 interface ISnailfishNumber 
 {
     int GetMagnitude();
@@ -187,4 +183,5 @@ for (var i = 0; i < pairs.Count; i++)
     }
 }
 
-Console.WriteLine($"Day 18 - Snailfish: {part1}, {magnitudes.Max()}");
+Console.WriteLine("Day 18: Snailfish");
+Console.WriteLine($"{part1}, {magnitudes.Max()}");

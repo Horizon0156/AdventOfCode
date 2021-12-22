@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/*************************************************
- * Advent of Code Day 14: Extended Polymerization
- ************************************************/
-
 Dictionary<string, long> TransformPolymer(
     Dictionary<string, long> countByPair,
     Dictionary<string, string> insertionByPair)
@@ -43,5 +39,5 @@ var countByChar = countByPair.Select(kv => (kv.Key[0], kv.Value))
 // The last char of the template is the last char of every polymer
 countByChar[polymerTemplate.Last()]++;
              
-Console.WriteLine("Day 14 - Extended Polymerization: " +
-                 $"{countByChar.Max(kv => kv.Value) - countByChar.Min(kv => kv.Value)}");
+Console.WriteLine("Day 14: Extended Polymerization");
+Console.WriteLine($"{countByChar.Max(kv => kv.Value) - countByChar.Min(kv => kv.Value)}");

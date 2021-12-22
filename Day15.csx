@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/*************************************************
- * Advent of Code Day 15: Chiton
- ************************************************/
-
 record Point(int X, int Y);
 
 IEnumerable<Point> Get4Neighboorhood(int[][] map, Point p)
@@ -74,4 +70,5 @@ var part1 = AStar(map, new Point(0, 0), new Point(map.Length - 1, map[map.Length
 var biggerMap = ResizeMap(map, 5);
 var part2 = AStar(biggerMap, new Point(0, 0), new Point(biggerMap[biggerMap.Length - 1].Length - 1, biggerMap.Length - 1));
 
-Console.WriteLine($"Day 15 - Chiton: {part1}, {part2}");
+Console.WriteLine("Day 15: Chiton");
+Console.WriteLine($"{part1}, {part2}");

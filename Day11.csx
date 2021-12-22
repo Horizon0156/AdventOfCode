@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/************************************************
- * Advent of Code Day 11: Dumbo Octopus
- ***********************************************/
-
 class Octopus
 {   
     private int _initialEnergyLevel;
@@ -108,4 +104,5 @@ while (true)
     step++;
 }
 
-Console.WriteLine($"Day 11 - Dumbo Octopus: {numberOfFlashes}, {step}");
+Console.WriteLine("Day 11: Dumbo Octopus");
+Console.WriteLine($"{numberOfFlashes}, {step}");

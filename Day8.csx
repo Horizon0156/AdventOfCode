@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/************************************************
- * Advent of Code Day 8: Seven Segment Search
- ***********************************************/
-
 static T TakeOut<T>(this List<T> list, Func<T, bool> predicate)
 {
     var value = list.Single(predicate);
@@ -64,4 +60,5 @@ var uniqueNumbers = data.Sum(s => s.Item2.Count(i => i.Length == 2 || i.Length =
 // Part 2
 var sumOfDecodedNumbers = data.Sum(s => DecodeSequence(s.Item1, s.Item2));
 
-Console.WriteLine($"Day 8 - Seven Segment Search: {uniqueNumbers}, {sumOfDecodedNumbers}");
+Console.WriteLine("Day 8: Seven Segment Search");
+Console.WriteLine($"{uniqueNumbers}, {sumOfDecodedNumbers}");

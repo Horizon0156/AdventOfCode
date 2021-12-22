@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/*************************************************
- * Advent of Code Day 17: Trick Shot
- ************************************************/
-
 record ProbePosition(int X, int Y);
 
 record ProbeVelocity(int X, int Y);
@@ -57,4 +53,5 @@ Result ShootProbe(ProbeVelocity velocity, TargetPosition target)
     return new (bestVelocity, bestResult, hittingShots);
 }
 
-Console.WriteLine($"Day 17 - Trick Shot: {FindBestShot(new TargetPosition(48, 70, -189, -148))}");
+Console.WriteLine("Day 17 - Trick Shot");
+Console.WriteLine($"{FindBestShot(new TargetPosition(48, 70, -189, -148))}");

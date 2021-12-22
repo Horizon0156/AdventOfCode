@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/**********************************************
- * Advent of Code Day 5: Hydrothermal Venture
- *********************************************/
-
 using System.Text.RegularExpressions;
 
 public record Point(int X, int Y);
@@ -54,4 +50,5 @@ var overlappingPoints = lines
                           .GroupBy(p => p)
                           .Count(g => g.Count() > 1);
 
-Console.WriteLine($"Day 5 - Hydrothermal Venture: {overlappingPoints}");
+Console.WriteLine("Day 5: Hydrothermal Venture");
+Console.Write($"{overlappingPoints}");

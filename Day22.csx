@@ -61,6 +61,6 @@ static long ProcessInstructions(IEnumerable<Instruction> instructions)
 Console.WriteLine("Day 22: Reactor Reboot");
 
 var instructions = ParseInstructions(File.ReadAllLines("Data/Day22.txt"));
-System.Console.WriteLine(ProcessInstructions(instructions.Take(20)));
-System.Console.WriteLine(ProcessInstructions(instructions));
+Console.WriteLine(ProcessInstructions(instructions.Take(20)));
+Console.WriteLine(ProcessInstructions(instructions));
 

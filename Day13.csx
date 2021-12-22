@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/************************************************
- * Advent of Code Day 13: Transparent Origami
- ***********************************************/
-
 public enum FoldAxis
 {
     X,
@@ -46,9 +42,11 @@ var instructions = data.Skip(dataSeparator + 1)
                        .Select(i => i.Split("="))
                        .Select(i => new FoldInstruction(Enum.Parse<FoldAxis>(i[0], ignoreCase: true), int.Parse(i[1])));
 
+Console.WriteLine("Day 13: Transparent Origami");
+
 // Part 1
 var foldPaper1 = FoldPaper(paper, instructions.First());
-Console.WriteLine($"Day 13 - Transparent Origami: Part 1 {foldPaper1.Count}");
+Console.WriteLine($"{foldPaper1.Count}");
 
 // Part 2
 var foldPaper = paper;

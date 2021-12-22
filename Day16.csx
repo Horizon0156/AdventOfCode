@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/*************************************************
- * Advent of Code Day 16: Packet Decoder
- ************************************************/
-
 record Packet(int Version, long Value);
 
 string HexToBinary(string word) => string.Join(
@@ -74,4 +70,5 @@ var word = File.ReadAllText("Data/Day16.txt");
 var index = 0;
 var packet = ParsePacket(HexToBinary(word), ref index);
 
-Console.WriteLine($"Day 16 - Packet Decoder: {packet}");
+Console.WriteLine("Day 16: Packet Decoder");
+Console.WriteLine($"{packet}");

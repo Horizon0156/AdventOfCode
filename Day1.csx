@@ -1,9 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/***************************************
- * Advent of Code Day 1: Sonar Sweep
- **************************************/
 public static IEnumerable<T> WherePairwise<T>(
         this IEnumerable<T> elements,
         Func<T, T, bool> filter)
@@ -42,4 +39,5 @@ var part2 = measurements
                 .WherePairwise((previous, current) => previous < current)
                 .Count();
 
-Console.WriteLine($"Day 1 - Sonar Sweep: {part1}, {part2}");
+Console.WriteLine("Day 1: Sonar Sweep");
+Console.WriteLine($"{part1}, {part2}");

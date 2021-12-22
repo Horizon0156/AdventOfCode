@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/**********************************************
- * Advent of Code Day 6: Lanternfish
- *********************************************/
-
 long[] ProcessPopulation(long[] populationByAge)
 {
     return Enumerable.Range(0, 9)
@@ -28,4 +24,5 @@ for (var i = 0; i < 256; i++)
     populationByAge = ProcessPopulation(populationByAge);
 }
 
-Console.WriteLine($"Day 6 - Lanternfish: {populationByAge.Sum()}");
+Console.WriteLine("Day 6: Lanternfish");
+Console.WriteLine($"{populationByAge.Sum()}");

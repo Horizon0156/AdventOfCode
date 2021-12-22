@@ -1,10 +1,6 @@
 #!/usr/bin/env dotnet-script
 #nullable enable
 
-/************************************************
- * Advent of Code Day 7: The Treachery of Whales
- ***********************************************/
-
 int GetFuelToPosition(int target, IEnumerable<int> positions)
 {
     return positions.Select(p => Math.Abs(p - target)).Sum();
@@ -22,4 +18,5 @@ var range = Enumerable.Range(positions.Min(), positions.Max() - positions.Min())
 var part1 = range.Select(i => GetFuelToPosition(i, positions)).Min();
 var part2 = range.Select(i => GetFuelToPosition2(i, positions)).Min();
 
-Console.WriteLine($"Day 7 - The Treachery of Whales: {part1}, {part2}");
+Console.WriteLine("Day 7: The Treachery of Whales");
+Console.WriteLine($"{part1}, {part2}");
