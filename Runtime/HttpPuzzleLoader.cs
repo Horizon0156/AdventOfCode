@@ -20,7 +20,8 @@ internal class HttpPuzzleLoader : IPuzzleLoader
                                 .WithCookie("session", _settings.SessionToken)
                                 .GetStringAsync(cancellationToken);
                     
-            return input.TrimEnd(Environment.NewLine.ToCharArray());
+            return input.ReplaceLineEndings()
+                        .TrimEnd(Environment.NewLine.ToCharArray());
         }
         catch (FlurlHttpException e)
         {
