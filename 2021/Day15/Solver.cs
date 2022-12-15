@@ -16,8 +16,6 @@ internal class Solver : ISolver
 
         return new (part1, part2);
     }
-    
-    record Point(int X, int Y);
 
     IEnumerable<Point> Get4Neighboorhood(int[][] map, Point p)
     {
@@ -30,14 +28,11 @@ internal class Solver : ISolver
         return neighboors;
     }
 
-    int LinearDistance(Point a, Point b) 
-        => (int) Math.Sqrt(Math.Pow(b.X - a.X, 2) + Math.Pow(b.Y - a.Y, 2));
-
     int AStar(int[][] map, Point start, Point end)
     {
         var openPoints = new HashSet<Point>() { start };
         var costsByNode = new Dictionary<Point, int>() {{ start, 0 }};
-        var heuristicByNode = new Dictionary<Point, int>() {{ start, LinearDistance(start, end) }};
+        var heuristicByNode = new Dictionary<Point, int>() {{ start, (int) start.EuclideanDistance(end) }};
         while (openPoints.Count > 0)
         {
             var nearestPoint = openPoints.OrderBy(p => heuristicByNode[p]).First();
@@ -51,7 +46,7 @@ internal class Solver : ISolver
                 if (!costsByNode.TryGetValue(new (n.X, n.Y), out var costs) || newCosts < costs)
                 {
                     costsByNode[n] = newCosts;
-                    heuristicByNode[n] = newCosts + LinearDistance(n, end);
+                    heuristicByNode[n] = newCosts + (int) n.EuclideanDistance(end);
                     openPoints.Add(n);
                 }
             }

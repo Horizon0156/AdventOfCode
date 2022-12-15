@@ -1,5 +1,3 @@
-using System.Text.RegularExpressions;
-
 namespace AdventOfCode.Y2022.Day04;
 
 [Problem("Camp Cleanup", 2022, 4)]
@@ -7,12 +5,8 @@ internal class Solver : ISolver
 {
     public Solution Solve(string input)
     {
-        var regEx = new Regex(@"(\d*)-(\d*),(\d*)-(\d*)");
         var pairs = input.SplitLines()
-                         .Select(p => regEx.Match(p).Groups.Values
-                                           .Skip(1)
-                                           .Select(g => int.Parse(g.Value))
-                                           .ToArray());
+                         .Select(p => p.Match<int>(@"(\d*)-(\d*),(\d*)-(\d*)"));
         
         return new (
             pairs.Where(ContainsOneTheOther).Count(),

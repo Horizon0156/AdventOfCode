@@ -35,11 +35,11 @@ internal class Solver : ISolver
         var sixDigitPatterns = normalizedSequence.Where(d => d.Length == 6).ToList();
 
         // Deducation by segment inclusion
-        numbersBySequence.Add(3, fiveDigitPatterns.TakeOut(d => numbersBySequence[1].All(s => d.Contains(s))));
-        numbersBySequence.Add(9, sixDigitPatterns.TakeOut(d => numbersBySequence[3].All(s => d.Contains(s))));
-        numbersBySequence.Add(0, sixDigitPatterns.TakeOut(d => numbersBySequence[7].All(s => d.Contains(s))));
+        numbersBySequence.Add(3, fiveDigitPatterns.Remove(d => numbersBySequence[1].All(s => d.Contains(s))));
+        numbersBySequence.Add(9, sixDigitPatterns.Remove(d => numbersBySequence[3].All(s => d.Contains(s))));
+        numbersBySequence.Add(0, sixDigitPatterns.Remove(d => numbersBySequence[7].All(s => d.Contains(s))));
         numbersBySequence.Add(6, sixDigitPatterns.Last());
-        numbersBySequence.Add(5, fiveDigitPatterns.TakeOut(d => d.All(s => numbersBySequence[6].Contains(s))));
+        numbersBySequence.Add(5, fiveDigitPatterns.Remove(d => d.All(s => numbersBySequence[6].Contains(s))));
         numbersBySequence.Add(2, fiveDigitPatterns.Last());
 
         return numbersBySequence.ToDictionary(x => x.Value, x => x.Key);

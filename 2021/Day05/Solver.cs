@@ -1,5 +1,3 @@
-using System.Text.RegularExpressions;
-
 namespace AdventOfCode.Y2021.Day05;
 
 [Problem("Hydrothermal Venture", 2021, 5)]
@@ -16,8 +14,6 @@ internal class Solver : ISolver
 
         return new ("-", overlappingPoints);
     }
-
-    private record Point(int X, int Y);
 
     private record Line(Point Start, Point End)
     {
@@ -48,11 +44,8 @@ internal class Solver : ISolver
 
         public static Line Parse(string line)
         {
-            var regex = new Regex(@"(\d+),(\d+) (?:->) (\d+),(\d+)");
-            var match = regex.Match(line);
-            return new (
-                new (int.Parse(match.Groups[1].Value), int.Parse(match.Groups[2].Value)),
-                new (int.Parse(match.Groups[3].Value), int.Parse(match.Groups[4].Value)));
+            var match = line.Match<int>(@"(\d+),(\d+) (?:->) (\d+),(\d+)");
+            return new (new (match[0], match[1]), new (match[2], match[3]));
         }
     }
 }

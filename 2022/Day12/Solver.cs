@@ -16,8 +16,6 @@ internal class Solver : ISolver
             FindPoints(map, 'a').Select(s => AStar(map, s, end)).Where(c => c > 0).Min());
     }
 
-    record Point(int X, int Y);
-
     static IEnumerable<Point> FindPoints(char[,] map, char elevation) 
     {
         var points = new List<Point>();
@@ -40,14 +38,11 @@ internal class Solver : ISolver
         return neighboors.Where(n => map[n.Y, n.X] <= elevation + 1);
     }
 
-    static int LinearDistance(Point a, Point b) 
-        => (int) Math.Sqrt(Math.Pow(b.X - a.X, 2) + Math.Pow(b.Y - a.Y, 2));
-
     static int AStar(char[,] map, Point start, Point end)
     {
         var openPoints = new HashSet<Point>() { start };
         var costsByNode = new Dictionary<Point, int>() {{ start, 0 }};
-        var heuristicByNode = new Dictionary<Point, int>() {{ start, LinearDistance(start, end) }};
+        var heuristicByNode = new Dictionary<Point, int>() {{ start, (int) start.EuclideanDistance(end) }};
         while (openPoints.Count > 0)
         {
             var nearestPoint = openPoints.OrderBy(p => heuristicByNode[p]).First();
@@ -61,7 +56,7 @@ internal class Solver : ISolver
                 if (!costsByNode.TryGetValue(new (n.X, n.Y), out var costs) || newCosts < costs)
                 {
                     costsByNode[n] = newCosts;
-                    heuristicByNode[n] = newCosts + LinearDistance(n, end);
+                    heuristicByNode[n] = newCosts + (int) n.EuclideanDistance(end);
                     openPoints.Add(n);
                 }
             }

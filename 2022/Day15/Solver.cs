@@ -1,5 +1,3 @@
-using System.Text.RegularExpressions;
-
 namespace AdventOfCode.Y2022.Day15;
 
 [Problem("Beacon Exclusion Zone", 2022, 15)]
@@ -58,11 +56,6 @@ internal class Solver : ISolver
         }
         return 0;
     }
-    
-    record Point(int X, int Y)
-    {
-        public int ManhattanDistance(Point other) => Math.Abs(X - other.X) + Math.Abs(Y - other.Y);
-    }
 
     record Sensor(Point Position, Point ClosestBeacon)
     {
@@ -72,11 +65,10 @@ internal class Solver : ISolver
 
         public static Sensor Parse(string value)
         {
-            var match = new Regex(@"Sensor at x=(-?\d+), y=(-?\d+): closest beacon is at x=(-?\d+), y=(-?\d+)")
-                           .Match(value).Groups;
-            return new (
-                new (int.Parse(match[1].Value), int.Parse(match[2].Value)),
-                new (int.Parse(match[3].Value), int.Parse(match[4].Value)));
+            var match = value.Match<int>(
+                @"Sensor at x=(-?\d+), y=(-?\d+): closest beacon is at x=(-?\d+), y=(-?\d+)");
+
+            return new (new (match[0], match[1]), new (match[2], match[3]));
         }
     }
 }

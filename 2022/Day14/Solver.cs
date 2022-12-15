@@ -9,7 +9,7 @@ internal class Solver : ISolver
                                 .Select(l => l.Split(" -> ")
                                               .Select(Point.Parse));
         var occupiedPoints = lineSegments.SelectMany(s => s.SlidingWindow(2)
-                                                           .SelectMany(l => l.First().InterpolateLine(l.Last())))
+                                                           .SelectMany(l => l.First().Interpolate(l.Last())))
                                          .ToHashSet();
 
         return new(
@@ -38,24 +38,5 @@ internal class Solver : ISolver
             sand = new Point(500, 0);
         }
         return sandCount;
-    }
-
-    record Point(int X, int Y)
-    {
-        public static Point Parse(string value)
-        {
-            var parts = value.Split(",");
-            return new (int.Parse(parts[0]), int.Parse(parts[1]));
-        }
-
-        public IEnumerable<Point> InterpolateLine(Point end)
-        {
-            var xStep = this.X <= end.X ? 1 : -1;
-            var yStep = this.Y <= end.Y ? 1 : -1;
-
-            for(var x = this.X; xStep > 0 ? x <= end.X : x >= end.X; x += xStep)
-                for(var y = this.Y; yStep > 0 ? y <= end.Y : y >= end.Y; y += yStep)
-                    yield return new (x, y);
-        }
     }
 }

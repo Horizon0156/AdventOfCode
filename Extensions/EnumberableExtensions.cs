@@ -10,7 +10,7 @@ internal static class EnumerableExtensions
         }
     }
 
-    public static T TakeOut<T>(this List<T> list, Func<T, bool> predicate)
+    public static T Remove<T>(this List<T> list, Func<T, bool> predicate)
     {
         var value = list.Single(predicate);
         list.Remove(value);

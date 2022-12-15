@@ -39,21 +39,6 @@ internal class Solver : ISolver
         }
     }
 
-    record Point(int X, int Y)
-    {
-        public Point CloseUp(Point point)
-        {
-            return this with 
-            {
-                X = X + Math.Clamp(point.X - X, -1, 1),
-                Y = Y + Math.Clamp(point.Y - Y, -1, 1)
-            };
-        }
-
-        public double Distance(Point point) =>
-            Math.Sqrt(Math.Pow(point.X - X, 2) + Math.Pow(point.Y - Y, 2));
-    }
-
     class Rope
     {
         private List<Point> _knots;
@@ -85,8 +70,8 @@ internal class Solver : ISolver
                 var forerunner = _knots[i - 1];
                 var current = _knots[i];
 
-                if (current.Distance(forerunner) > 1.5)
-                    _knots[i] = current.CloseUp(forerunner);
+                if (current.EuclideanDistance(forerunner) > 1.5)
+                    _knots[i] = current.MoveTowards(forerunner, 1);
             }
         }
     }

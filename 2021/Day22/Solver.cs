@@ -1,5 +1,3 @@
-using System.Text.RegularExpressions;
-
 namespace AdventOfCode.Y2021.Day22;
 
 [Problem("Reactor Reboot", 2021, 22)]
@@ -31,20 +29,17 @@ internal class Solver : ISolver
 
     static IEnumerable<Instruction> ParseInstructions(string[] data)
     {
-        var regex = new Regex(
-            @"(off|on) x=(\-*\d*)..(\-*\d*),y=(\-*\d*)..(\-*\d*),z=(\-*\d*)..(\-*\d*)");
-
         foreach (var d in data)
         {
-            var match = regex.Match(d);
+            var match = d.Match(@"(off|on) x=(\-*\d*)..(\-*\d*),y=(\-*\d*)..(\-*\d*),z=(\-*\d*)..(\-*\d*)");
             yield return new (
-                string.Equals(match.Groups[1].Value, "on"),
-                int.Parse(match.Groups[2].Value),
-                int.Parse(match.Groups[3].Value),
-                int.Parse(match.Groups[4].Value),
-                int.Parse(match.Groups[5].Value),
-                int.Parse(match.Groups[6].Value),
-                int.Parse(match.Groups[7].Value)
+                string.Equals(match[0], "on"),
+                int.Parse(match[1]),
+                int.Parse(match[2]),
+                int.Parse(match[3]),
+                int.Parse(match[4]),
+                int.Parse(match[5]),
+                int.Parse(match[6])
             );
         }
     }

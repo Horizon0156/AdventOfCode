@@ -1,5 +1,3 @@
-using System.Text.RegularExpressions;
-
 namespace AdventOfCode.Y2022.Day05;
 
 [Problem("Supply Stacks", 2022, 5)]
@@ -46,9 +44,7 @@ internal class Solver : ISolver
     {
         public static Instruction Parse(string instruction)
         {
-            var regEx = new Regex(@"move (\d*) from (\d*) to (\d*)");
-            var parts = regEx.Match(instruction).Groups.Values
-                              .Skip(1).Select(g => int.Parse(g.Value)).ToArray();
+            var parts = instruction.Match<int>(@"move (\d*) from (\d*) to (\d*)");
 
             return new Instruction(parts[0], parts[1], parts[2]);
         }

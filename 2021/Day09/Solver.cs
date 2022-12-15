@@ -10,7 +10,7 @@ internal class Solver : ISolver
                         .ToArray();
 
         // Part 1
-        var lowPoints = data.SelectMany((row, y) => row.Select((value, x) => new Point(x, y, value)))
+        var lowPoints = data.SelectMany((row, y) => row.Select((value, x) => new Point<int>(x, y, value)))
                             .Where(p => Get4Neighboorhood(data, p).All(n => n.Value > p.Value));
         var riskLevel = lowPoints.Select(p => p.Value + 1)
                                 .Sum();
@@ -23,11 +23,9 @@ internal class Solver : ISolver
         return new (riskLevel, basinCount);
     }
 
-    record Point(int X, int Y, int Value);
-
-    IEnumerable<Point> Get4Neighboorhood(int[][] data, Point p)
+    IEnumerable<Point<int>> Get4Neighboorhood(int[][] data, Point<int> p)
     {
-        var neighboors = new List<Point>();
+        var neighboors = new List<Point<int>>();
         if (p.X - 1 >= 0) neighboors.Add(p with { X = p.X - 1, Value = data[p.Y][p.X - 1]});
         if (p.X + 1 < data[p.Y].Length) neighboors.Add(p with { X = p.X + 1, Value = data[p.Y][p.X + 1]});
         if (p.Y - 1 >= 0) neighboors.Add(p with { Y = p.Y - 1, Value = data[p.Y - 1][p.X]});
@@ -36,9 +34,9 @@ internal class Solver : ISolver
         return neighboors;
     }
 
-    IEnumerable<Point> GetBasin(int[][] data, Point lowPoint)
+    IEnumerable<Point<int>> GetBasin(int[][] data, Point<int> lowPoint)
     {
-        var basin = new HashSet<Point>() { lowPoint };
+        var basin = new HashSet<Point<int>>() { lowPoint };
         
         Get4Neighboorhood(data, lowPoint)
             .Where(n => n.Value != 9 && n.Value > lowPoint.Value && !basin.Contains(n))
