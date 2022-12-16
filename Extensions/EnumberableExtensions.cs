@@ -2,20 +2,26 @@ namespace AdventOfCode.Extensions;
 
 internal static class EnumerableExtensions 
 {
-    public static IEnumerable<IEnumerable<T>> SlidingWindow<T>(this IEnumerable<T> elements, int windowSize)
+    public static IEnumerable<T> ForEach<T>(this IEnumerable<T> source, Action<T> action)
     {
-        for (var i = 0; i <= elements.Count() - windowSize; i++)
-        {
-            yield return elements.Skip(i).Take(windowSize);
-        }
+        foreach (var element in source) action(element);
+        return source;
     }
-
+    
     public static T Remove<T>(this List<T> list, Func<T, bool> predicate)
     {
         var value = list.Single(predicate);
         list.Remove(value);
 
         return value;
+    }
+
+    public static IEnumerable<IEnumerable<T>> SlidingWindow<T>(this IEnumerable<T> elements, int windowSize)
+    {
+        for (var i = 0; i <= elements.Count() - windowSize; i++)
+        {
+            yield return elements.Skip(i).Take(windowSize);
+        }
     }
 
     public static T[,] To2DArray<T>(this IEnumerable<IEnumerable<T>> source)
