@@ -16,6 +16,18 @@ internal record Point(int X, int Y)
 
     public int ManhattanDistance(Point target) => Math.Abs(X - target.X) + Math.Abs(Y - target.Y);
 
+    public Point Move(Direction direction, int step = 1)
+    {
+        return direction switch
+        {
+            Direction.Up => this with { Y = this.Y + step },
+            Direction.Down => this with { Y = this.Y - step },
+            Direction.Left => this with { X = this.X - step },
+            Direction.Right => this with { X = this.X + step },
+            _ => throw new ArgumentException("Bad direction")
+        };
+    }
+
     public Point MoveTowards(Point point, int step = 1)
     {
         return this with 
