@@ -7,18 +7,22 @@ internal class Solver : ISolver
     {
         var jetDirections = input.ToCharArray();
 
-        return new(DropStones(2022, jetDirections).Height, 0);
+        return new(
+            DropStones(2022, jetDirections).Height,
+            DropStones(1000000000000, jetDirections).Height);
     }
 
-    static (int Height, int Stones) DropStones(long stones, char[] jetDirections)
+    static (long Height, long Stones) DropStones(long stones, char[] jetDirections)
     {
         var chamber = Enumerable.Range(0, 7).Select(x => new Point(x, 0)).ToHashSet();
         var currentHeight = 0;
         var stone = Shape.Create(0, currentHeight + 4);
-        var stonesSpawned = 1;
+        var stonesDropped = 0L;
         var steps = 0;
-
-        while (stonesSpawned - 1 < stones)
+        var stateCache = new Dictionary<string, (long Height, long Stones)>();
+        var patternApplied = false;
+        var cycledHeight = 0L;
+        while (stonesDropped < stones)
         {
             var jetDirection = jetDirections[steps % jetDirections.Length];
             var movedStone = stone.Move(jetDirection);
@@ -30,14 +34,45 @@ internal class Solver : ISolver
             {
                 stone.Points.ForEach(p => chamber.Add(p));
                 currentHeight = chamber.Select(p => p.Y).Max();
-                stone = Shape.Create(stonesSpawned % 5, currentHeight + 4);
-                stonesSpawned++;
+                stonesDropped++;
+    
+                if (!patternApplied)
+                {
+                    var state = DrawChamber(chamber, currentHeight - 30);
+                    if (stateCache.TryGetValue(state, out var pattern))
+                    {
+                        var heightPerCycle = currentHeight - pattern.Height;
+                        var stonesPerCycle = stonesDropped - pattern.Stones;
+                        var remainingStones = stones - stonesDropped;
+                        var cyclesToApply = (stones - stonesDropped) / stonesPerCycle;
+                        stonesDropped += cyclesToApply * stonesPerCycle;
+                        cycledHeight += cyclesToApply * heightPerCycle;
+                        patternApplied = true;
+                    }
+                    else stateCache[state] = (currentHeight, stonesDropped);
+                }
+                stone = Shape.Create((int) (stonesDropped % 5), currentHeight + 4);
             }
             else stone = movedStone;
             
             steps++;
         }
-        return (currentHeight, stonesSpawned - 1);
+        return (currentHeight + cycledHeight, stonesDropped);
+    }
+
+    static string DrawChamber(HashSet<Point> chamber, int startAt)
+    {
+        var drawing = string.Empty;
+        var currentHeight = chamber.Max(p => p.Y);
+        startAt = startAt < 0 ? 0 : startAt;
+        for (var y = currentHeight; y >= startAt; y--)
+        {
+            drawing += "|";
+            for (var x = 0; x < 7; x++)
+                drawing += chamber.Contains(new (x, y)) ? "#" : " ";
+            drawing += "|" + Environment.NewLine;
+        }
+        return drawing;
     }
 
     record Shape(Point[] Points)
