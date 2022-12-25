@@ -4,6 +4,14 @@ internal record Point(int X, int Y)
 {
     public double EuclideanDistance(Point target) => Math.Sqrt(Math.Pow(target.X - X, 2) + Math.Pow(target.Y - Y, 2));
 
+    public IEnumerable<Point> Get4Neighbourhood()
+    {
+        yield return this with { Y = Y - 1 };
+        yield return this with { X = X - 1 };
+        yield return this with { X = X + 1};
+        yield return this with { Y = Y + 1 };
+    }
+
     public IEnumerable<Point> Get8Neighbourhood()
     {
         yield return this with { X = X - 1, Y = Y - 1 };
