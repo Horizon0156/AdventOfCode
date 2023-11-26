@@ -26,11 +26,11 @@ internal record Point(int X, int Y)
     
     public IEnumerable<Point> Interpolate(Point end, int step = 1)
     {
-        var xStep = this.X <= end.X ? step : -step;
-        var yStep = this.Y <= end.Y ? step : -step;
+        var xStep = X <= end.X ? step : -step;
+        var yStep = Y <= end.Y ? step : -step;
 
-        for(var x = this.X; xStep > 0 ? x <= end.X : x >= end.X; x += xStep)
-            for(var y = this.Y; yStep > 0 ? y <= end.Y : y >= end.Y; y += yStep)
+        for(var x = X; xStep > 0 ? x <= end.X : x >= end.X; x += xStep)
+            for(var y = Y; yStep > 0 ? y <= end.Y : y >= end.Y; y += yStep)
                 yield return new (x, y);
     }
 

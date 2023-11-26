@@ -16,6 +16,19 @@ internal static class EnumerableExtensions
         return value;
     }
 
+    public static IEnumerable<(T p1, T p2)> Pairwise<T>(this IEnumerable<T> elements)
+    {
+        var elementArray = elements.ToArray();
+        if (elementArray.Length % 2 != 0)
+        {
+            throw new ArgumentException("Elements have an odd length.", nameof(elements));
+        }
+        for (var i = 0; i <= elementArray.Length - 1; i += 2)
+        {
+            yield return (elementArray[i], elementArray[i + 1]);
+        }
+    }
+
     public static IEnumerable<IEnumerable<T>> SlidingWindow<T>(this IEnumerable<T> elements, int windowSize)
     {
         for (var i = 0; i <= elements.Count() - windowSize; i++)

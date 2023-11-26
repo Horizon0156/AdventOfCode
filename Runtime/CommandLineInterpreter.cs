@@ -43,7 +43,7 @@ internal class CommandLineInterpreter
             yearArgument,
             dayArgument);
 
-        _rootCommand = new RootCommand("Advent of Code - CLI");
+        _rootCommand = new RootCommand("Advent of Code - CLI 🎄");
         _rootCommand.AddCommand(initCommand);
         _rootCommand.AddCommand(solveCommand);
     }
@@ -123,7 +123,7 @@ internal class CommandLineInterpreter
         var solution = solver.Solve(input);
         stopwatch.Stop();
 
-        Console.WriteLine($"Advent of Code {date.Year}");
+        Console.WriteLine($"Advent of Code {date.Year} 🎄");
         Console.WriteLine($"Day {date.Day}: {solver.GetProblemName()}");
         Console.WriteLine("------------------------------------------------------");
         Console.WriteLine($"Part 1: {solution.Part1}");

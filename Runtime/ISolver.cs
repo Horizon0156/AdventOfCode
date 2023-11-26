@@ -2,5 +2,5 @@ namespace AdventOfCode.Runtime;
 
 internal interface ISolver 
 {
-    public Solution Solve(string input);
+    Solution Solve(string input);
 }
