@@ -5,7 +5,7 @@ using Packet = System.Text.Json.Nodes.JsonNode;
 using Array = System.Text.Json.Nodes.JsonArray;
 using Value = System.Text.Json.Nodes.JsonValue;
 
-[Problem("Distress Signal", 2022, 13)]
+[Puzzle("Distress Signal", 2022, 13)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

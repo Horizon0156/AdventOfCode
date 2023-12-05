@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day10;
 
-[Problem("Cathode-Ray Tube", 2022, 10)]
+[Puzzle("Cathode-Ray Tube", 2022, 10)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

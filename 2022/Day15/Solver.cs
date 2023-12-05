@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day15;
 
-[Problem("Beacon Exclusion Zone", 2022, 15)]
+[Puzzle("Beacon Exclusion Zone", 2022, 15)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

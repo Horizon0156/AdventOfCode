@@ -60,13 +60,17 @@ internal class CommandLineInterpreter
             return;
         }
 
+        var puzzleName = await _puzzleLoader.GetPuzzleName(date, CancellationToken.None);
         var content = $$"""
         namespace AdventOfCode.Y{{date.Year}}.Day{{date.Day:D2}};
 
-        [Problem("Problem", {{date.Year}}, {{date.Day}})]
+        [Puzzle("{{puzzleName}}", {{date.Year}}, {{date.Day}})]
         internal class Solver : ISolver
         {
-            public Solution Solve(string input) => new (0, 0);
+            public Solution Solve(string input)
+            {
+                return new (0, 0);
+            }
         }
         """;
 
@@ -88,7 +92,7 @@ internal class CommandLineInterpreter
         {
             try
             {
-                var input = await _puzzleLoader.LoadPuzzleAsync(date, CancellationToken.None);
+                var input = await _puzzleLoader.LoadPuzzleInputAsync(date, CancellationToken.None);
                 await File.WriteAllTextAsync(puzzleFilepath, input);
             }
             catch (ApiException e)
@@ -124,10 +128,10 @@ internal class CommandLineInterpreter
         stopwatch.Stop();
 
         Console.WriteLine($"Advent of Code {date.Year} 🎄");
-        Console.WriteLine($"Day {date.Day}: {solver.GetProblemName()}");
+        Console.WriteLine($"Day {date.Day}: {solver.GetPuzzleName()}");
         Console.WriteLine("------------------------------------------------------");
-        Console.WriteLine($"Part 1: {solution.Part1}");
-        Console.WriteLine($"Part 2: {solution.Part2}");
+        Console.WriteLine($"⭐️ Part 1: {solution.Part1}");
+        Console.WriteLine($"⭐️ Part 2: {solution.Part2}");
         Console.WriteLine("------------------------------------------------------");
         Console.WriteLine($"Computation time: {stopwatch.ElapsedMilliseconds} ms");
     }

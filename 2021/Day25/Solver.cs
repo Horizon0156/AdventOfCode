@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2021.Day25;
 
-[Problem("Sea Cucumber", 2021, 25)]
+[Puzzle("Sea Cucumber", 2021, 25)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

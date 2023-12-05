@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2021.Day03;
 
-[Problem("Binary Diagnostic", 2021, 3)]
+[Puzzle("Binary Diagnostic", 2021, 3)]
 internal class Solver : ISolver
 {
     private const int DIAGNOSTIC_WORD_LENGTH = 12;

@@ -1,9 +1,9 @@
 namespace AdventOfCode.Runtime;
 
 [AttributeUsage(AttributeTargets.Class)]
-internal class ProblemAttribute : Attribute
+internal class PuzzleAttribute : Attribute
 {
-    public ProblemAttribute(string name, int year, int day)
+    public PuzzleAttribute(string name, int year, int day)
     {
         Name = name;
         Date = new (year, 12, day);

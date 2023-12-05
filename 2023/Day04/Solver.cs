@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2023.Day04;
 
-[Problem("Scratchcards", 2023, 4)]
+[Puzzle("Scratchcards", 2023, 4)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

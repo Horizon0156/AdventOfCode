@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2021.Day10;
 
-[Problem("Syntax Scoring", 2021, 10)]
+[Puzzle("Syntax Scoring", 2021, 10)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

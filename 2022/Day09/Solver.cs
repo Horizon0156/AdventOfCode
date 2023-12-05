@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day09;
 
-[Problem("Rope Bridge", 2022, 9)]
+[Puzzle("Rope Bridge", 2022, 9)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

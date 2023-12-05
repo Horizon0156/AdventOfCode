@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day20;
 
-[Problem("Grove Positioning System", 2022, 20)]
+[Puzzle("Grove Positioning System", 2022, 20)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

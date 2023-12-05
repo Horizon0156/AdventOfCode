@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Flurl.Http;
 using Microsoft.Extensions.Options;
 
@@ -12,7 +13,25 @@ internal class HttpPuzzleLoader : IPuzzleLoader
         _settings = settings.Value;
     }
 
-    public async Task<string> LoadPuzzleAsync(DateOnly date, CancellationToken cancellationToken)
+    public async Task<string> GetPuzzleName(DateOnly date, CancellationToken cancellationToken)
+    {
+        try
+        {
+            var pageContent = await $"https://adventofcode.com/{date.Year}/day/{date.Day}"
+                                .WithCookie("session", _settings.SessionToken)
+                                .GetStringAsync(cancellationToken);
+            var titleMatch = Regex.Match(pageContent, @"--- Day \d+: (.+) ---");
+            return titleMatch.Success 
+                ? titleMatch.Groups[1].Value
+                : string.Empty;
+        }
+        catch (FlurlHttpException)
+        {
+            return string.Empty;
+        }
+    }
+
+    public async Task<string> LoadPuzzleInputAsync(DateOnly date, CancellationToken cancellationToken)
     {
         try
         {

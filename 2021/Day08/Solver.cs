@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2021.Day08;
 
-[Problem("Seven Segment Search", 2021, 8)]
+[Puzzle("Seven Segment Search", 2021, 8)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

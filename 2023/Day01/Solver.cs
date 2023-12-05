@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2023.Day01;
 
-[Problem("Trebuchet?!", 2023, 1)]
+[Puzzle("Trebuchet?!", 2023, 1)]
 internal class Solver : ISolver
 {
     private static int Part1(string input) => 

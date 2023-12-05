@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day17;
 
-[Problem("Pyroclastic Flow", 2022, 17)]
+[Puzzle("Pyroclastic Flow", 2022, 17)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

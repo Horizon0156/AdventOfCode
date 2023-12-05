@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2021.Day17;
 
-[Problem("Trick Shot", 2021, 17)]
+[Puzzle("Trick Shot", 2021, 17)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input) => new ("-", FindBestShot(new TargetPosition(48, 70, -189, -148)));

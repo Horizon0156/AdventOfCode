@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2021.Day20;
 
-[Problem("Trench Map", 2021, 20)]
+[Puzzle("Trench Map", 2021, 20)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

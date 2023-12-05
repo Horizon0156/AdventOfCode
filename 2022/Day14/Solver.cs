@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day14;
 
-[Problem("Regolith Reservoir", 2022, 14)]
+[Puzzle("Regolith Reservoir", 2022, 14)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

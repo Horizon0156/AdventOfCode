@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2021.Day12;
 
-[Problem("Passage Pathing", 2021, 12)]
+[Puzzle("Passage Pathing", 2021, 12)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

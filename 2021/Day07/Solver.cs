@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2021.Day07;
 
-[Problem("The Treachery of Whales", 2021, 7)]
+[Puzzle("The Treachery of Whales", 2021, 7)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input) 

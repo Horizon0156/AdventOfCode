@@ -32,9 +32,9 @@ dotnet user-secrets set Settings:SessionToken "567abc..."
 ```
 
 #### Solution example
-Every solution needs to implement `ISolver` and declare itself as a `Solver` for the given day using the `Problem` attribute.
+Every solution needs to implement `ISolver` and declare itself as a `Solver` for the given day using the `Puzzle` attribute.
 ```C#
-[Problem("Rock Paper Scissors", 2022, 2)]
+[Puzzle("Rock Paper Scissors", 2022, 2)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

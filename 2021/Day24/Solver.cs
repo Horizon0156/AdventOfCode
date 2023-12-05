@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2021.Day24;
 
-[Problem("Arithmetic Logic Unit", 2021, 24)]
+[Puzzle("Arithmetic Logic Unit", 2021, 24)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input) => new (FindModelNumber(input, findMaximum: true), FindModelNumber(input, findMaximum: false));

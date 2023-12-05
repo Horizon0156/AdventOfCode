@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day07;
 
-[Problem("No Space Left On Device", 2022, 7)]
+[Puzzle("No Space Left On Device", 2022, 7)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

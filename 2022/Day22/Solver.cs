@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace AdventOfCode.Y2022.Day22;
 
-[Problem("Monkey Map", 2022, 22)]
+[Puzzle("Monkey Map", 2022, 22)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

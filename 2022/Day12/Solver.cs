@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day12;
 
-[Problem("Hill Climbing Algorithm", 2022, 12)]
+[Puzzle("Hill Climbing Algorithm", 2022, 12)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

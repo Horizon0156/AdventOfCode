@@ -10,7 +10,7 @@ internal class LocalSolverLocator : ISolverLocator
                                  .GetTypes()
                                  .FirstOrDefault(t => t.IsClass
                                                    && typeof(ISolver).IsAssignableFrom(t)
-                                                   && t.GetCustomAttribute<ProblemAttribute>()?.Date == date);
+                                                   && t.GetCustomAttribute<PuzzleAttribute>()?.Date == date);
 
         return solverType != null
             ? Activator.CreateInstance(solverType) as ISolver

@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day23;
 
-[Problem("Unstable Diffusion", 2022, 23)]
+[Puzzle("Unstable Diffusion", 2022, 23)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

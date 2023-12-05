@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day08;
 
-[Problem("Treetop Tree House", 2022, 8)]
+[Puzzle("Treetop Tree House", 2022, 8)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

@@ -4,7 +4,7 @@ using PositionalNumber = (int value, int xStart, int xEnd, int y);
 
 namespace AdventOfCode.Y2023.Day03;
 
-[Problem("Gear Ratios", 2023, 3)]
+[Puzzle("Gear Ratios", 2023, 3)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

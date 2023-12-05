@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day01;
 
-[Problem("Calorie Counting", 2022, 1)]
+[Puzzle("Calorie Counting", 2022, 1)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

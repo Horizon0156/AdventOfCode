@@ -5,6 +5,6 @@ namespace AdventOfCode.Extensions;
 
 internal static class SolverExtensions
 {
-    public static string? GetProblemName(this ISolver solver) => 
-        solver.GetType().GetCustomAttribute<ProblemAttribute>()?.Name;
+    public static string? GetPuzzleName(this ISolver solver) => 
+        solver.GetType().GetCustomAttribute<PuzzleAttribute>()?.Name;
 }

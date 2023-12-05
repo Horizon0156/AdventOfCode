@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2021.Day13;
 
-[Problem("Transparent Origami", 2021, 13)]
+[Puzzle("Transparent Origami", 2021, 13)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input) 

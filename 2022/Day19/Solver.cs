@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day19;
 
-[Problem("Not Enough Minerals", 2022, 19)]
+[Puzzle("Not Enough Minerals", 2022, 19)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

@@ -3,7 +3,7 @@ namespace AdventOfCode.Y2023.Day05;
 using MapEntry = (long from, long to, long offset);
 using Range = (long from, long to);
 
-[Problem("If You Give A Seed A Fertilizer", 2023, 5)]
+[Puzzle("If You Give A Seed A Fertilizer", 2023, 5)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

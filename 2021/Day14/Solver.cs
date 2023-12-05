@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2021.Day14;
 
-[Problem("Extended Polymerization", 2021, 14)]
+[Puzzle("Extended Polymerization", 2021, 14)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

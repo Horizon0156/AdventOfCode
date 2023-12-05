@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2022.Day16;
 
-[Problem("Proboscidea Volcanium", 2022, 16)]
+[Puzzle("Proboscidea Volcanium", 2022, 16)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)

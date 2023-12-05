@@ -1,6 +1,6 @@
 namespace AdventOfCode.Y2023.Day02;
 
-[Problem("Cube Conundrum", 2023, 2)]
+[Puzzle("Cube Conundrum", 2023, 2)]
 internal class Solver : ISolver
 {
     public Solution Solve(string input)
