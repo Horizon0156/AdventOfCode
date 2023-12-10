@@ -40,10 +40,10 @@ internal record Point(int X, int Y)
     {
         return direction switch
         {
-            Direction.Up => this with { Y = this.Y + step },
-            Direction.Down => this with { Y = this.Y - step },
-            Direction.Left => this with { X = this.X - step },
-            Direction.Right => this with { X = this.X + step },
+            Direction.Up => this with { Y = Y + step },
+            Direction.Down => this with { Y = Y - step },
+            Direction.Left => this with { X = X - step },
+            Direction.Right => this with { X = X + step },
             _ => throw new ArgumentException("Bad direction")
         };
     }
