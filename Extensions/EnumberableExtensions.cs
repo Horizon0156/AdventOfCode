@@ -16,6 +16,14 @@ internal static class EnumerableExtensions
         return value;
     }
 
+    public static IEnumerable<(T, T)> Combinations<T>(this IEnumerable<T> elements)
+    {
+        var elementsArray = elements.ToArray();
+        for (var i = 0; i < elementsArray.Length; i++)
+            for (var j = i + 1; j < elementsArray.Length; j++)
+                yield return (elementsArray[i], elementsArray[j]);
+    }
+
     public static IEnumerable<(T p1, T p2)> Pairwise<T>(this IEnumerable<T> elements)
     {
         var elementArray = elements.ToArray();
