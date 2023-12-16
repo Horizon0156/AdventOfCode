@@ -4,6 +4,10 @@ internal static class MapExtensions
 {
     public static T ElementAt<T>(this T[,] map, Point point) => map[point.Y, point.X];
 
+    public static int GetHeight<T>(this T[,] map) => map.GetLength(0);
+    
+    public static int GetWidth<T>(this T[,] map) => map.GetLength(1);
+
     public static IEnumerable<Point> GetPoints<T>(this T[,] map)
     {
         for (var y = 0; y < map.GetLength(0); y++)
