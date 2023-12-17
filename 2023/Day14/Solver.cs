@@ -17,14 +17,6 @@ internal class Solver : ISolver
                   .Sum(y => Enumerable.Range(0, map.GetWidth())
                                       .Count(x => map[y, x] == 'O') * (map.GetHeight() - y));
 
-    private static string PrintMap(char[,] map) => 
-        string.Join(
-            Environment.NewLine,
-            Enumerable.Range(0, map.GetLength(0))
-                      .Select(y => new string(Enumerable.Range(0, map.GetLength(1))
-                                                        .Select(x => map[y, x])
-                                                        .ToArray())));
-
     private static char[,] RotateLeft(char[,] map)
     {
         var height = map.GetHeight();
@@ -46,7 +38,7 @@ internal class Solver : ISolver
         {
             for (var i = 0; i < 4; i++) map = RotateLeft(TiltNorth(map));
             cycles--;
-            var printedMap = PrintMap(map);
+            var printedMap = map.PrintMap();
             var cycleIndex = history.IndexOf(printedMap);
             if (cycleIndex != -1)
             {

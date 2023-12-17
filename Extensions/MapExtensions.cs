@@ -8,6 +8,9 @@ internal static class MapExtensions
     
     public static int GetWidth<T>(this T[,] map) => map.GetLength(1);
 
+    public static bool InBounds<T>(this T[,] map, Point point) =>
+        point.X >= 0 && point.X < map.GetWidth() && point.Y >= 0 && point.Y < map.GetHeight();
+
     public static IEnumerable<Point> GetPoints<T>(this T[,] map)
     {
         for (var y = 0; y < map.GetLength(0); y++)
@@ -25,4 +28,12 @@ internal static class MapExtensions
 
         return points;
     }
+
+    public static string PrintMap(this char[,] map) => 
+        string.Join(
+            Environment.NewLine,
+            Enumerable.Range(0, map.GetHeight())
+                      .Select(y => new string(Enumerable.Range(0, map.GetWidth())
+                                                        .Select(x => map[y, x])
+                                                        .ToArray())));
 }
